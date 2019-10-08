@@ -1,0 +1,59 @@
+<!-- macro input -->
+{% macro input(name, label="", value="", placeholder="", size="") %}
+
+<div class="field">
+    <label for="label {{ size }}">{{ label }}</label>
+    <div class="control">
+        <input type="text" class="input {{ size }}" placeholder="{{ placeholder }}" name="{{ name }}" value="{{ value }}">
+    </div>
+</div>
+
+
+{% endmacro %}
+
+<!-- campos formulario -->
+{% macro campo(name, label="", value="", placeholder="", size="", category="", licon="", ricon="", help="", type="") %}
+<div class="field">
+    <label class="label {{size}}">{{label }}</label>
+    {% if licon and ricon %}
+        <div class="control has-icons-left has-icons-right">
+    {% elif licon %}
+        <div class="control has-icons-left">
+    {% elif ricon %}
+        <div class="control has-icons-right">
+    {% else %}
+        <div class="control">
+    {% endif %}
+
+    <input type="{{ type }}" class="input {{category}} {{size}}" name="{{name}}" placeholder="{{placeholder}}" value="{{value}}">
+       
+    {% if licon %}
+    <span class="icon is-small is-left">
+        <i class="fas {{licon}}"></i>
+
+    </span>
+    {%endif%}
+     {% if ricon %}
+    <span class="icon is-small is-right">
+        <i class="fas fa-check"></i>
+    </span>
+    {%endif%}
+     </div>
+
+</div>
+{% endmacro %}
+
+
+{% macro enviar(textoenviar="", textocancel="")%}
+
+<div class="field is-grouped">
+  <div class="control">
+    <button class="button is-link">{{textoenviar}}</button>
+  </div>
+  <div class="control">
+    <button class="button is-text">{{textocancel}}</button>
+  </div>
+</div>
+
+
+{% endmacro %}

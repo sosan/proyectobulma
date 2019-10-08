@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% import "_macrosformbulma.html" as bulma %}
+
+<!-- MAIN -->
+{% block content %}
+hooola
+<h1>Formulario de bulma</h1>
+<form action="/" method="post">
+    {{ bulma.input(name="usuario", label="Uusario", value="", placeholder="Introduce usuario", size="12") }}
+
+    <!-- name, label="", value="", placeholder="", size="", category="", licon="", help="", type="" -->
+    {{ bulma.campo(name="email", label="Email", value="", placeholder="Introduce email", size="12",
+        category="", licon="fa-envelope", ricon="", help="", type="email"
+    ) }}
+
+{{ bulma.campo(name="password", label="Password", value="", placeholder="Introduce password", size="12",
+        category="", licon="fa-lock", ricon="", help="", type="password"
+    ) }}
+
+    {{ bulma.enviar(textoenviar="Enviar", textocancel="Cancelar") }}
+
+</form>
+{% endblock %}
+
